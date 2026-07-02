@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+/* ── Snip design tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg:          #0d0d10;
+  --surface:     #18181f;
+  --surface-hi:  #21212b;
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-hi:   rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text:        #ededf2;
+  --muted:       #6e6e8a;
+
+  /* Accent gradient stops */
+  --glow-coral:  #ff6560;
+  --glow-pink:   #e040a8;
+  --glow-purple: #7c3aed;
+  --glow-indigo: #4338ca;
+
+  /* Font */
+  --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --s1: 0.25rem;  --s2: 0.5rem;  --s3: 0.75rem;
+  --s4: 1rem;     --s6: 1.5rem;  --s8: 2rem;
+  --s10: 2.5rem;  --s12: 3rem;   --s16: 4rem;
+
+  /* Radii */
+  --r-sm:   8px;
+  --r-md:   14px;
+  --r-xl:   28px;
+  --r-pill: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 24px rgba(0, 0, 0, 0.5);
+  --ring-input:  0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+html, body {
+  min-height: 100%;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }

@@ -1,40 +1,42 @@
 ﻿<main>
-  <header>
-    <h1>&#x2702; Snip</h1>
-    <p>Paste a long URL, get a short one.</p>
-  </header>
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <h1 class="hero-title">&#x2702; Snip</h1>
+    <p class="hero-sub">Drop a long URL. Get a short one.</p>
 
-  <section class="shorten">
-    <form (ngSubmit)="submit()">
-      <div class="row">
+    <div class="input-card">
+      <form (ngSubmit)="submit()" class="input-row">
         <input
           name="url"
           [(ngModel)]="urlInput"
           placeholder="https://example.com/very/long/url"
           autocomplete="off"
           required
+          class="url-input"
         />
-        <button type="submit" [disabled]="busy()">Shorten</button>
-      </div>
-    </form>
+        <button type="submit" [disabled]="busy()" class="send-btn" aria-label="Shorten">
+          &#x2191;
+        </button>
+      </form>
 
-    @if (result(); as link) {
-      <div class="success">
-        Short URL:&nbsp;<a [href]="link.shortUrl" target="_blank" rel="noopener">{{ link.shortUrl }}</a>
-      </div>
-    }
-
-    @if (error()) {
-      <div class="error">{{ error() }}</div>
-    }
+      @if (result(); as link) {
+        <div class="notice success-notice">
+          Short URL:&nbsp;<a [href]="link.shortUrl" target="_blank" rel="noopener">{{ link.shortUrl }}</a>
+        </div>
+      }
+      @if (error()) {
+        <div class="notice error-notice">{{ error() }}</div>
+      }
+    </div>
   </section>
 
-  <section class="list">
-    <h2>All links</h2>
+  <!-- ── Links card ── -->
+  <section class="links-card">
+    <h2 class="section-title">All links</h2>
     @if (links().length === 0) {
       <p class="empty">No links yet.</p>
     } @else {
-      <table>
+      <table class="links-table">
         <thead>
           <tr>
             <th>Code</th>
@@ -46,7 +48,7 @@
         <tbody>
           @for (link of links(); track link.code) {
             <tr>
-              <td><a [href]="link.shortUrl" target="_blank" rel="noopener">{{ link.code }}</a></td>
+              <td><a [href]="link.shortUrl" target="_blank" rel="noopener" class="code-link">{{ link.code }}</a></td>
               <td class="url-cell" [title]="link.url">{{ link.url }}</td>
               <td class="center">{{ link.hits }}</td>
               <td class="center">{{ link.createdAt | date:'short' }}</td>
