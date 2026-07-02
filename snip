@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# POSIX wrapper — forwards all args to cli.js
+DIR="$(cd "$(dirname "$0")" && pwd)"
+exec node "$DIR/cli.js" "$@"
